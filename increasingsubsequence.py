@@ -39,17 +39,13 @@ class Solution:
             #type arr: list of int
             #return type: int
             value = 1
-            value_2 = 0
-            for i in range(len(arr)-1):
-                if arr[i]<arr[i+1]:
+            largest_val = arr[0]
+            for i in range(len(arr)):
+                if largest_val<arr[i]:
                     value += 1
-                else:
-                     if value_2 < value:
-                        value_2 = value
-                        value = 1
+                    largest_val = arr[i]
+            return value
 
-            return (value_2 if (value_2 > value) else value)
-            pass
 
 def main():
     array = input().split(" ")
