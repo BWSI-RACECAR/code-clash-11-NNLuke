@@ -38,11 +38,17 @@ class Solution:
     def find_longest_increasing_subsequence(self, arr):
             #type arr: list of int
             #return type: int
-            value = 0
+            value = 1
+            value_2 = 0
             for i in range(len(arr)-1):
-                 if arr[i]<arr[i+1]:
-                      value += 1
-            return value
+                if arr[i]<arr[i+1]:
+                    value += 1
+                else:
+                     if value_2 < value:
+                        value_2 = value
+                        value = 1
+
+            return (value_2 if (value_2 > value) else value)
             pass
 
 def main():
