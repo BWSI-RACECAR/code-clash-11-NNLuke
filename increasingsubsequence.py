@@ -38,13 +38,34 @@ class Solution:
     def find_longest_increasing_subsequence(self, arr):
             #type arr: list of int
             #return type: int
-            value = 1
-            largest_val = arr[0]
-            for i in range(len(arr)):
-                if largest_val<arr[i]:
-                    value += 1
-                    largest_val = arr[i]
-            return value
+
+            n = len(arr)
+            lis = [1] * n  # Initialize an array to store the longest increasing subsequence length for each element.
+
+            for i in range(1, n):
+                for j in range(i):
+                    if arr[i] > arr[j]:
+                        lis[i] = max(lis[i], lis[j] + 1)
+
+            return max(lis)
+
+            '''
+            c=1
+            n_list = []
+            n_list.append(arr[0])
+            while True:
+                for i in range(len(arr)):
+                    if arr[i] + c == arr[0]:
+                        n_list.append(arr[i])
+                        c=1
+                        arr = arr[i:-1]
+                        break
+                c+=1
+                print(c)
+                if arr[0] == max(arr) or c>100:
+                    break
+            return (len(n_list))
+'''
 
 
 def main():
