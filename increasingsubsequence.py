@@ -44,7 +44,7 @@ class Solution:
                 if largest_val<arr[i]:
                     value += 1
                     largest_val = arr[i]
-            return value
+            return arr
 
 
 def main():
